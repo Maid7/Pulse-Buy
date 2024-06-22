@@ -18,14 +18,14 @@ export default function CardTile(data) {
   const handleRemoveFromCart = () => {
     dispatch(removeFromCart(data.data.id));
   };
-  console.log(data);
+
   return (
     <>
       <Flex
         boxShadow="md"
         p="20px"
         w="100%"
-        height={{ base: "400px", sm: "800px", md: "200px", lg: "200px" }}
+        height={{ base: "600px", sm: "800px", md: "200px", lg: "200px" }}
         flexDirection={{ base: "column", sm: "column", lg: "row" }}
       >
         <Box flex="1" height="100%">

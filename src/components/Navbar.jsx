@@ -24,7 +24,7 @@ const Navbar = () => {
     useContext(GlobalContext);
 
   return (
-    <Box bg="white" px={4}>
+    <Box bg="white" p="2px">
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <IconButton
           size="md"
@@ -34,8 +34,8 @@ const Navbar = () => {
           onClick={isOpen ? onClose : onOpen}
         />
         <HStack spacing={8} alignItems="center">
-          <Box fontWeight="bold" fontSize="lg" color="green.400">
-            <Link to="/">PulseBuy</Link>
+          <Box pl="5px" fontWeight="bold" fontSize="lg" color="green.400">
+            <Link to="/" >PulseBuy</Link>
           </Box>
           <HStack
             ml={{ base: "0", md: "400px" }}
@@ -113,9 +113,10 @@ const Navbar = () => {
           </HStack>
         </HStack>
         <Flex alignItems="center">
-          <InputGroup size="md" maxW="300px" mr={4}>
+          <InputGroup size="md" maxW="200px" ml={2} mr={4}>
             <form onSubmit={handleSubmit}>
               <Input
+              
                 pr="4.5rem"
                 type="text"
                 placeholder="Search"
@@ -142,7 +143,7 @@ const Navbar = () => {
 
       {isOpen ? (
         <Box
-          pb={4}
+         
           display={{ md: "none" }}
           position="absolute"
           bg="white"

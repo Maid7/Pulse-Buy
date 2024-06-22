@@ -3,6 +3,8 @@ import { Flex,Text,Divider,Button } from "@chakra-ui/react"
 export default function CardCheckout({cart,totalPrice, totalDiscount,totalCart}) {
   return (
     <Flex
+    boxShadow="md"
+    p="10px"
     mt={{base: "50px",sm : "50px"}}
     flexDirection="column"
     h="100%"
