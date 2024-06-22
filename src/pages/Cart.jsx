@@ -4,6 +4,7 @@ import { Flex, Heading, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import CardTile from "../components/CardTile";
 import CardCheckout from "../components/CardCheckout";
+
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalDiscount, setTotalDiscount] = useState(0);
@@ -11,11 +12,11 @@ const Cart = () => {
   const { cart } = useSelector((state) => state);
 
   useEffect(() => {
-    const price = cart.reduce((acc, curr) => acc + curr.price, 0);
-    const discount = cart.reduce((acc, curr) => acc + curr.discount, 0);
+    const price = cart.reduce((acc, curr) => acc + (Number(curr.price) || 0), 0);
+    const discount = cart.reduce((acc, curr) => acc + (Number(curr.discount) || 0), 0);
     setTotalPrice(price);
     setTotalDiscount(discount);
-    const discountedPrice = price - price * (discount / 100);
+    const discountedPrice = price - (price * (discount / 100));
     setTotalCart(discountedPrice);
   }, [cart]);
 
@@ -34,11 +35,9 @@ const Cart = () => {
             flexDirection="column"
           >
             {cart.map((cartItem) => (
-                // card tile component
-              <CardTile data={cartItem} />
+              <CardTile key={cartItem.id} data={cartItem} />
             ))}
           </Flex>
-          {/* card checkout component */}
           <CardCheckout
             totalPrice={totalPrice}
             totalDiscount={totalDiscount}
@@ -47,11 +46,7 @@ const Cart = () => {
           />
         </Flex>
       ) : (
-        <Flex
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-        >
+        <Flex alignItems="center" justifyContent="center" flexDirection="column">
           <Heading color="green.400">Your Cart Is Empty</Heading>
           <Link to="/">
             <Button variant="link">Shop Now!</Button>

@@ -33,6 +33,7 @@ const BrandsLayout = () => {
         justifyContent="space-evenly"
         m="20px"
         px={{ base: 4, md: 8 }}
+        flexWrap={{base: "wrap", sm: "wrap"}}
       >
 
         <CustomNavLink to="sony">Sony</CustomNavLink>

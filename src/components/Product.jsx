@@ -89,9 +89,11 @@ export default function Product({ data }) {
           </Heading>
           <Flex w="100%" alignItems="center" justifyContent="space-between">
             <Box>
-              <Text color="green.300" fontWeight="bold">
-                {data.discount}% OFF
-              </Text>
+              {data.discount > 0 && (
+                <Text color="green.300" fontWeight="bold">
+                  {data.discount}% Off
+                </Text>
+              )}
               <Text mt="-12px" fontWeight="bold" fontSize="2xl">
                 ${data.price}
               </Text>

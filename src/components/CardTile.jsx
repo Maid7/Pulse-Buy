@@ -82,9 +82,12 @@ export default function CardTile(data) {
             mb={{ lg: "29px" }}
             fontWeight="bold"
           >
-            <Text mb="-8px" fontSize="12px">
-              {data.data.discount}%OFF
-            </Text>
+           
+            {data.data.discount > 0 && (
+        <Text color="green.300" fontWeight="bold">
+          {data.data.discount}% Off
+        </Text>
+      )}
             <Text>${data.data.price}</Text>
           </Box>
         </Flex>
