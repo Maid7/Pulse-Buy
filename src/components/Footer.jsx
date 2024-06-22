@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Flex, Grid, Text, Stack, Divider } from "@chakra-ui/react";
-import { Link } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -26,10 +26,10 @@ const Footer = () => {
           <Text fontSize="xl" fontWeight="bold">
             Links
           </Text>
-          <Link href="/">Home</Link>
-          <Link href="about">About</Link>
-          <Link href="help">Help</Link>
-          <Link href="favorites">Favorites</Link>
+          <Link to="/">Home</Link>
+          <Link to="about">About</Link>
+          <Link to="help">Help</Link>
+          <Link to="favorites">Favorites</Link>
         </Stack>
 
         <Stack spacing={{ base: 4, md: 8 }}>
