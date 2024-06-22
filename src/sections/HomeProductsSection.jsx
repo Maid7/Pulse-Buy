@@ -17,7 +17,6 @@ import { Link } from "react-router-dom";
 
 export default function HomeProductsSection() {
   const { products } = useContext(GlobalContext);
-  const { cart } = useSelector((state) => state);
   const [pageNumber, setPageNumber] = useState(0);
   const gridRef = useRef(null);
 
