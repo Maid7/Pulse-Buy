@@ -1,0 +1,55 @@
+import { Outlet, NavLink } from "react-router-dom";
+import { Flex, Box, Link } from "@chakra-ui/react";
+
+const ProductsLayout = () => {
+  // custom NavLink
+  const CustomNavLink = ({ to, children, ...props }) => (
+    <NavLink to={to} exact>
+      {({ isActive }) => (
+        <Link
+          as={Box}
+          h="30px"
+          w="90px"
+          borderRadius="20px"
+          p={2}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          color={isActive ? "white" : "black"}
+          fontWeight={isActive ? "bold" : "normal"}
+          bg={isActive ? "green.200" : "white"}
+          {...props}
+        >
+          {children}
+        </Link>
+      )}
+    </NavLink>
+  );
+  return (
+    <>
+      
+      <Flex
+        maxWidth="700px"
+        alignItems="center"
+        justifyContent="space-evenly"
+        m="20px"
+        px={{ base: 4, md: 8 }}
+      >
+        <CustomNavLink to="tv">TV</CustomNavLink>
+
+        <CustomNavLink to="mobile">Mobile</CustomNavLink>
+
+        <CustomNavLink to="audio">Audio</CustomNavLink>
+
+        <CustomNavLink to="appliances">Alliances</CustomNavLink>
+
+        <CustomNavLink to="gaming">Gaming</CustomNavLink>
+
+        <CustomNavLink to="laptop">Laptop</CustomNavLink>
+      </Flex>
+      <Outlet />
+    </>
+  );
+};
+
+export default ProductsLayout;

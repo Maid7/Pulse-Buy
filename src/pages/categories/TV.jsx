@@ -1,0 +1,25 @@
+import { SimpleGrid, Box, Spinner } from "@chakra-ui/react";
+import { GlobalContext } from "../../context";
+import Product from "../../components/Product";
+import { useContext } from "react";
+
+export default function TV() {
+  const { products, loading } = useContext(GlobalContext);
+
+  return (
+    <SimpleGrid>
+      {loading ? (
+        <Box>
+          <Spinner color="teal.300" m="20px" />
+        </Box>
+      ) : (
+        <SimpleGrid minChildWidth={250} spacing={10} p="20px">
+          {products &&
+            products
+              .filter((item) => item.category === "tv")
+              .map((item) => <Product data={item} key={item.id} />)}
+        </SimpleGrid>
+      )}
+    </SimpleGrid>
+  );
+}
