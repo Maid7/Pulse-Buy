@@ -10,7 +10,6 @@ import {
   Stack,
   Heading,
   Text,
- 
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
@@ -47,22 +46,24 @@ export default function HomeProductsSection() {
           displayProducts.map((item) => (
             <Card maxW="sm" key={item.id}>
               <CardBody>
-               <Link to={`/${item.id}`}>
-               <Image
-                  src={item.image}
-                  alt="Green double couch with wooden legs"
-                  borderRadius="lg"
-                  transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out"
-                  _hover={{ transform: "scale(1.2)", opacity: 0.8 }}
-                />
-               </Link> 
+                <Link to={`/${item.id}`}>
+                  <Image
+                    src={item.image}
+                    alt="Green double couch with wooden legs"
+                    borderRadius="lg"
+                    transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out"
+                    _hover={{ transform: "scale(1.2)", opacity: 0.8 }}
+                  />
+                </Link>
                 <Stack mt="6" spacing="3">
                   <Heading size="md" fontWeight="bold">
                     {item.title.split(",")[0]}
                   </Heading>
-                  <Text color="green.300" fontWeight="bold">
-                    {item.discount}% OFF
-                  </Text>
+                  {item.discount > 0 && (
+                    <Text color="green.300" fontWeight="bold">
+                      {item.discount}% Off
+                    </Text>
+                  )}
                   <Text color="green.300" fontSize="2xl" mt="-16px">
                     ${item.price}
                   </Text>
