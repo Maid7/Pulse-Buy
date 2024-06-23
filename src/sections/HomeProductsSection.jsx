@@ -49,7 +49,6 @@ export default function HomeProductsSection() {
                 <Link to={`/${item.id}`}>
                   <Image
                     src={item.image}
-                    alt="Green double couch with wooden legs"
                     borderRadius="lg"
                     transition="transform 0.3s ease-in-out, opacity 0.3s ease-in-out"
                     _hover={{ transform: "scale(1.2)", opacity: 0.8 }}
